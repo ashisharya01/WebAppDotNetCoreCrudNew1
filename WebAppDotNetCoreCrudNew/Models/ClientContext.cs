@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 
 namespace WebAppDotNetCoreCrudNew.Models
 {
-    public class StudentContext : DbContext
+    public class ClientContext : DbContext
     {
-        public StudentContext(DbContextOptions<StudentContext> options):base(options)
+        public ClientContext(DbContextOptions<ClientContext> options):base(options)
         {
                 
         }
 
-        public DbSet<Student> tbl_Student { get; set; }
+        public DbSet<Client> tbl_Student1 { get; set; }
         public DbSet<Departments> tbl_Departments { get; set; }
-
+    
     }
 }

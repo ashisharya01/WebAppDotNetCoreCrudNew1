@@ -20,13 +20,13 @@ namespace WebAppDotNetCoreCrudNew
             Configuration = configuration;
         }
 
-        public IConfiguration Configuration { get; }
+        public IConfiguration Configuration { get; set; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            services.AddDbContext<StudentContext>(options => options.UseSqlServer(Configuration.GetConnectionString("AppCon")));
+            IServiceCollection serviceCollection = services.AddDbContext<ClientContext>(options => options.UseSqlServer(Configuration.GetConnectionString("AppCon")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -53,7 +53,7 @@ namespace WebAppDotNetCoreCrudNew
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Student}/{action=StudentList}/{id?}");
+                    pattern: "{controller=Client}/{action=ClientList}/{id?}");
             });
         }
     }

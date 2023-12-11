@@ -1,0 +1,109 @@
+﻿@model IEnumerable<WebAppDotNetCoreCrudNew.Models.Client>
+
+
+@{
+    ViewData["Title"] = "Client List";
+}
+
+<h4>Client List</h4>
+
+<p class="float-right">
+    <a asp-action="Create" class="btn btn-outline-primary">Add New</a>
+</p>
+<table class="table">
+    <thead>
+        <!-- Your HTML form for creating a new customer -->
+<form asp-action="Create" method="post">
+    <!-- Form fields for customer information -->
+    
+    <!-- Other form fields -->
+
+    <button type="submit" class="btn btn-primary">Add Customer</button>
+  
+</form>
+    </thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Firstname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Lastname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Phone_Number)
+            </th>
+
+          
+            <th>
+                @Html.DisplayNameFor(model => model.Country_code)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Gender)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Balance)
+            </th>
+
+        </tr>
+  
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.ID)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Firstname)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Lastname)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Phone_Number)
+                </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Country_code)
+            </td>
+
+                               <td>
+                    @Html.DisplayFor(modelItem => item.Gender)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Balance)
+                </td>
+
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ID, firstname = item.Firstname, lastname = item.Lastname, email = item.Email, phone = item.Phone_Number, countryCode = item.Country_code, gender = item.Gender, balance = item.Balance }, new { @class="btn btn-success" })
+
+                    @Html.ActionLink("Delete", "DeleteStd", new { id = item.ID }, new { @class = "btn btn-danger", onclick = "return confirm('Do you really want to delete this record?')" })
+                </td>
+
+            </tr>
+        }
+
+
+
+
+    </tbody>
+</table>

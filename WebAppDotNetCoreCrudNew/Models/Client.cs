@@ -4,36 +4,39 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
+using WebAppDotNetCoreCrudNew.Models;
 
 namespace WebAppDotNetCoreCrudNew.Models
 {
-    public class Student
+    public class Client
     {
         [Key]
-        public int CustomerID { get; set; }
+        [Required(ErrorMessage = "Required")]
+        public int ID { get; set; }
 
 
 
         [Required(ErrorMessage = "Required")]
-        public string Fname { get; set; }
+        public string Firstname { get; set; }
 
 
         [Required(ErrorMessage = "Required")]
-        public string Lname { get; set; }
+        public string Lastname { get; set; }
 
         [Required(ErrorMessage = "Required")]
         [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
 
         [Required(ErrorMessage = "Required")]
-        public string Mobile { get; set; }
+        public string Phone_Number { get; set; }
 
         public string Country_code { get; set; }
 
         [Required(ErrorMessage = "Required")]
         [NotMapped]
-        public string Gender { get; set; }
+        public char Gender { get; set; }
 
         public decimal Balance { get; set; }
     }
+
 }
